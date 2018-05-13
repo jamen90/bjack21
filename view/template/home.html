@@ -1,4 +1,15 @@
-<html>
-	<head><title>21</title></head>
-	<body><img src="{{ card1 }}"></img><img src="{{ card2 }}"></img></body>
-</html>
+{% extends "layout.html" %}
+
+{% block body %}
+<br />
+<br />
+<br />
+<center><h1>Hello Jack</h1></center>
+<br />
+<br />
+<center><h2>Hey {{ uname }}</h2><h2><a href="index.php">[Home]</a></h2>-----<h2><a href="index.php?action=logout">[Logout]</a></h2>--------------------<h2><a href="index.php?action=deal">[Deal]</a></h2><h2><a href="index.php?action=score">[Scores]</a></h2></center>
+<br />
+<br />
+<br />
+
+{% endblock %}

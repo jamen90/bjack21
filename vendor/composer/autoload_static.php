@@ -67,6 +67,7 @@ class ComposerStaticInit6384380383021d16eb80bba6c087be6c
     );
 
     public static $classMap = array (
+        'Control\\AuthControl' => __DIR__ . '/../..' . '/control/AuthControl.php',
         'Control\\Initialization' => __DIR__ . '/../..' . '/control/Initialization.php',
         'Model\\Authentication' => __DIR__ . '/../..' . '/model/authentication.php',
         'Model\\Config' => __DIR__ . '/../..' . '/model/Config.php',
@@ -418,6 +419,7 @@ class ComposerStaticInit6384380383021d16eb80bba6c087be6c
         'Twig_Util_TemplateDirIterator' => __DIR__ . '/..' . '/twig/twig/lib/Twig/Util/TemplateDirIterator.php',
         'View\\Config' => __DIR__ . '/../..' . '/view/Config.php',
         'View\\Hello' => __DIR__ . '/../..' . '/view/hello.php',
+        'View\\Home' => __DIR__ . '/../..' . '/view/home.php',
     );
 
     public static function getInitializer(ClassLoader $loader)

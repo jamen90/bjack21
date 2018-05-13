@@ -9,7 +9,7 @@
 
 		public function __construct()
 		{
-			if ($pdo == NULL)
+			if ($this->pdo == NULL)
 			{
 				try
 				{
@@ -20,7 +20,14 @@
 				}
 			}
 
-			return $this->pdo;
+		}
+
+		public function connect()
+		{
+			if($this->pdo != null)
+				return $this->pdo;
+			else
+				echo "not sql-object ";
 		}
 
 		public function create()

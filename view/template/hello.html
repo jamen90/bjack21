@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+{% block body %}
+<center><h3>{% if err %} {{ err }} {% endif %}</h3></center>
+<table>
+	<td>
+		<center><h3>Hit!</h3></center>
+		<form action="index.php?action=login" method="POST">
+			<center>******************************************</center>
+			<br />
+			Username: <input autocomplete="off" type="text" name="uname">
+			<br />
+			<br />
+			Password: <input type="password" name="pword">
+			<br />
+			<br />
+			<input type="submit" name="login" value="Login">
+			<br />
+			<br />
+			<center>******************************************</center>
+		</form>
+	</td>
+	<td>
+		<br /><br /> ** <br /> ** <br /> ** <br /> ** <br /> ** <br /> ** <br /> ** <br />**<br />**<br />**<br />**<br />**
+	</td>
+	<td>
+		<center><h3>Deal?</h3></center>
+		<form action="index.php?action=register" method="POST">
+		<center>******************************************</center>
+		<br />
+			New Username: <input autocomplete="off" type="text" name="uname">
+			<br />
+			<br />
+			New Password: <input type="password" name="pword">
+			<br />
+			<br />
+			<input type="submit" name="register" value="Register">
+			<br />
+			<br />
+			<center>******************************************</center>
+		</form>
+	</td>
+
+</table>
+
+{% endblock %}

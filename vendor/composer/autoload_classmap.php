@@ -6,6 +6,7 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'Control\\AuthControl' => $baseDir . '/control/AuthControl.php',
     'Control\\Initialization' => $baseDir . '/control/Initialization.php',
     'Model\\Authentication' => $baseDir . '/model/authentication.php',
     'Model\\Config' => $baseDir . '/model/Config.php',
@@ -357,4 +358,5 @@ return array(
     'Twig_Util_TemplateDirIterator' => $vendorDir . '/twig/twig/lib/Twig/Util/TemplateDirIterator.php',
     'View\\Config' => $baseDir . '/view/Config.php',
     'View\\Hello' => $baseDir . '/view/hello.php',
+    'View\\Home' => $baseDir . '/view/home.php',
 );

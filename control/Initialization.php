@@ -1,8 +1,8 @@
 <?php
 
-	require_once '../vendor/autoload.php';
-
 	namespace Control;
+
+	require_once __DIR__.'/../vendor/autoload.php';
 
 	use Model\SQLConnection;
 	use Model\Authentication;
