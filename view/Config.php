@@ -9,7 +9,7 @@
 
 	class Config
 	{
-		const PNG_PATH = "view/static/png/";
+		const PNG_PATH = "static/png/";
 
 		const TEMPLATE_PATH = __DIR__."/template";
 

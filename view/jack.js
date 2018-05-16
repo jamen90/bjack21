@@ -1,9 +1,4 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>21</title>
-	<script type="text/javascript">
-		var VALUE = [2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10, 11];
+var VALUE = [2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10, 11];
 var CARDS = ["2","3","4","5","6","7","8","9","10","jack","queen","king","ace"];
 var TYPES = ["hearts.png", "clubs.png", "diamonds.png", "spades.png"];
 
@@ -24,14 +19,14 @@ function sumup()
 	var ace = false;
 	for( i =0; i < pCards.length; ++i)
 	{
-		if(pCards[i].startsWith('a'))
+		if(pCards[i].startswith('a'))
 		{
 			ace = true;
 		}
 		for(j=0; j < CARDS.length; ++j)
 		{
 
-			if(pCards[i].startsWith(CARDS[j][0]))
+			if(pCards[i].startswith(CARDS[j][0]))
 			{
 				pHand += VALUE[j]
 			}
@@ -46,14 +41,14 @@ function sumup()
 	var ace2 = false;
 	for( i =0; i < dCards.length; ++i)
 	{
-		if(dCards[i].startsWith('a'))
+		if(dCards[i].startswith('a'))
 		{
 			ace2 = true;
 		}
 		for(j=0; j < CARDS.length; ++j)
 		{
 
-			if(dCards[i].startsWith(CARDS[j][0]))
+			if(dCards[i].startswith(CARDS[j][0]))
 			{
 				dHand += VALUE[j]
 			}
@@ -182,16 +177,3 @@ function deal(b)
 function getcard(min, max) {
     return Math.floor(Math.random() * (max - min) ) + min;
 }
-	</script>
-</head>
-<body>
-
-	<div name="dealer" id="dealer"></div>
-	<br/>
-	<p id="stat">(-_-)</p>
-	<button onclick="deal(20)">deal</button><button onclick="hit()">Hit</button><button onclick="stand()">Stand</button>
-	<br/>
-	<div name="player" id="player"></div>
-
-</body>
-</html>
