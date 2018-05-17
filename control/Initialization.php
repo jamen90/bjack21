@@ -25,6 +25,7 @@
 			$this->permission = (new Authentication())-> connect();
 			if($this->permission == TRUE)
 			{
+				
 				$this->view = (new Home())-> fullhouse($_SESSION["username"]);
 			}
 			else

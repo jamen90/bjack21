@@ -4,19 +4,35 @@
 
 	require_once __DIR__."/../vendor/autoload.php";
 
+	use Control\Session;
+
 	class Game
 	{
 		private $twig;
 
+		private $uname;
+
+		public $fund;
+
 		public function __construct()
 		{
-			$this->twig = (new Config())-> tw();
+			$this->uname = $_SESSION["username"];
+			$this->twig = (new Config())->tw();
 		}
 
-		public function first($header)
+		public function load()
 		{
-			echo $this->twig->render("home.html", array("header"=> $header));
+			$this->fund = (new Session())->init();
+			return $this->twig->render("game.html", array('chip' => Config::CHIP_PATH, 'fund'=>$this->fund));
 		}
+
+		public function rndr()
+		{
+			$this->fund = (new Session())->init();
+			echo $this->twig->render("game.html", array('chip' => Config::CHIP_PATH, 'fund'=>$this->fund));
+		}
+
 	}
+
 
 ?>

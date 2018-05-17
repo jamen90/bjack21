@@ -9,7 +9,7 @@ var pHand;
 var dHand;
 var bet = 0;
 var state = "";
-
+var sc;
 
 function sumup()
 {
@@ -85,24 +85,67 @@ function rule(final)
 {
 	if(pHand > 21){
 		state = "Busted Hand:You Lose";
+		sc = 0;
 	}
 	else if(dHand > 21){
 		state = "You Win";
+		sc =1;
 	}
 	else if (final == true)
 	{
 		if(pHand > dHand)
 		{
 			state = "You Win";
+			sc=1;
 		}
 		else if(pHand < dHand)
 		{
 			state = "You Lose";
+			sc=0;
 		}
 		else if (pHand == dHand)
 		{
 			state = "Push!";
 		}
+	}
+
+}
+
+function score(r)
+{
+	if(r == 1)
+	{
+		var f = document.createElement("form");
+		f.action = "index.php?action=score";
+		f.method = "POST";
+
+		var v = document.createElement("input");
+		v.type = 'hidden';
+		v.name = 'bite';
+		v.value = bet;
+
+		f.appendChild(v);
+
+		document.getElementById("hidden_v").appendChild(f);
+
+		f.submit();
+	}
+	else if(r == 0)
+	{
+		var f = document.createElement("form");
+		f.action = "index.php?action=score";
+		f.method = "POST";
+
+		var v = document.createElement("input");
+		v.type = 'hidden';
+		v.name = 'bite';
+		v.value = bet - (bet*2);
+
+		f.appendChild(v);
+
+		document.getElementById("hidden_v").appendChild(f);
+
+		f.submit();
 	}
 
 }
@@ -149,7 +192,12 @@ function stand()
 	display();
 }
 
-function display()
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+
+async function display()
 {
 	document.getElementById("dealer").innerHTML = "";
 	document.getElementById("player").innerHTML = "";
@@ -189,6 +237,8 @@ function display()
 		document.getElementById("stat").innerHTML = state;
 		document.getElementById("dhand").innerHTML = dHand;
 		document.getElementById("bet").innerHTML = "";
+		score(sc)
+		await sleep(2000);
 		bet = 0;	
 		game("end");
 

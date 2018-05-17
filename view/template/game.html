@@ -5,6 +5,7 @@
 	<script src="view/template/jack.js"></script>
 </head>
 <body onload="game('end')">
+	<div id="hidden_v" style="display: none;"></div>
 	<center>
 	<table>
 		<td width="100">
@@ -38,7 +39,7 @@
 </td>
 <td>
 	<p>Your Fund:</p>
-	<p id="fund">?</p>
+	<p id="fund">{{ fund }}</p>
 	<br/>
 	<p>Your Bet:</p>
 	<p id="bet">0</p>
