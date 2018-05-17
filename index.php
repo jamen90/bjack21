@@ -10,10 +10,10 @@
 	{
 		const ROUT_MAP = array('visit' => 'Control\Initialization',
 			'login' => 'Control\AuthControl', 'logout' => 'Control\AuthControl','register' => 'Control\AuthControl',
-			'score' => 'Control\Session', 'deal' => 'Control\Session');
+			'score' => 'Control\Session');
 
 		const ARGUMENTS_CONTROL = array("logout"=>0, "visit"=>0,
-										"score"=>0, "deal"=>0, "login"=>3, "register"=>3);
+										"score"=>0, "login"=>3, "register"=>3);
 
 
 		private $response;

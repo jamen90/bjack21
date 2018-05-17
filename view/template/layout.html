@@ -6,7 +6,7 @@
 	<center>
 	<table>
 		<td>
-	<img style="align-self: left;" src="{{ card1 }}"></img></td><td><center><h1>Hello Jack</h1></center></td><td><img style="align-content: right;" src="{{ card2 }}"></img></td>
+	{% if card1 %}<img width="130" height="200" style="align-self: left;" src="{{ card1 }}"></img></td>{% endif %}<td><center><h1>Hello Jack</h1></center></td>{% if card2 %}<td><img width="130" height="200" style="align-content: right;" src="{{ card2 }}"></img></td>{% endif %}
 </table>
 <center>
 </head>

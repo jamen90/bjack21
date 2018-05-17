@@ -9,9 +9,13 @@
 
 	class Config
 	{
-		const PNG_PATH = "static/png/";
+		const PNG_PATH = "view/static/png/";
+
+		const CHIP_PATH = "view/static/chips/";
 
 		const TEMPLATE_PATH = __DIR__."/template";
+
+		const GAME_PAGE = "view/template/game.html";
 
 		const CARD_VAL = array("10","9","8","7","6","5","4","3","2","ace","king","queen","jack");
 

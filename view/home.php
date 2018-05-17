@@ -17,7 +17,8 @@
 
 		public function fullhouse($uname)
 		{
-			echo $this->twig->render("home.html", array('uname' => $uname));
+			$gma = $this->twig->render("game.html", array('chip' => Config::CHIP_PATH ));
+			echo $this->twig->render("home.html", array('uname' => $uname , 'game'=>$gma));
 		}
 	}
 

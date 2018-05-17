@@ -92,6 +92,9 @@
 				{
 					$this->pdo->exec("INSERT INTO users ('uname', 'pword') VALUES 
 									  ('$uname', '$pword');");
+					$id = $this->pdo->querySingle("SELECT uid FROM users WHERE uname='$uname'");
+					$this->pdo->exec("INSERT INTO score ('sid', 'win', 'fund', 'sesst') VALUES 
+										('$id', 0, 1024, 0);");
 
 					$this->uname = $uname;
 					$this->assign();

@@ -2,196 +2,51 @@
 <html>
 <head>
 	<title>21</title>
-	<script type="text/javascript">
-		var VALUE = [2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10, 11];
-var CARDS = ["2","3","4","5","6","7","8","9","10","jack","queen","king","ace"];
-var TYPES = ["hearts.png", "clubs.png", "diamonds.png", "spades.png"];
-
-var onHand = [];
-var pCards = [];
-var dCards = [];
-var pHand;
-var dHand;
-var bet = 0;
-var state = "";
-
-
-function sumup()
-{
-	pHand = 0;
-	dHand = 0;
-
-	var ace = false;
-	for( i =0; i < pCards.length; ++i)
-	{
-		if(pCards[i].startsWith('a'))
-		{
-			ace = true;
-		}
-		for(j=0; j < CARDS.length; ++j)
-		{
-
-			if(pCards[i].startsWith(CARDS[j][0]))
-			{
-				pHand += VALUE[j]
-			}
-		}
-
-	}
-	if(ace==true && pHand > 21)
-	{
-		pHand -= 10;
-	}
-
-	var ace2 = false;
-	for( i =0; i < dCards.length; ++i)
-	{
-		if(dCards[i].startsWith('a'))
-		{
-			ace2 = true;
-		}
-		for(j=0; j < CARDS.length; ++j)
-		{
-
-			if(dCards[i].startsWith(CARDS[j][0]))
-			{
-				dHand += VALUE[j]
-			}
-		}
-
-	}
-	if(ace2==true && dHand > 21)
-	{
-		dHand -= 10;
-	}
-	rule(false);
-	display();
-
-}
-
-function rule(final)
-{
-	if(pHand > 21){
-		state = "You Lose";
-	}
-	else if(dHand > 21){
-		state = "You Win";
-	}
-	else if (final == true)
-	{
-		if(pHand > dHand)
-		{
-			state = "You Win";
-		}
-		else
-		{
-			state = "You Lose";
-		}
-	}
-
-}
-
-function hit()
-{	
-	do
-	{
-		var c = CARDS[getcard(0,CARDS.length)]+"_of_"+TYPES[getcard(0,4)];
-	}while(onHand.includes(c));
-	pCards.push(c);
-	onHand.push(c);
-
-	sumup();
-	
-}
-
-function stand()
-{
-	while(dHand < 17)
-	{
-		do
-		{
-			var c = CARDS[getcard(0,CARDS.length)]+"_of_"+TYPES[getcard(0,4)];
-		}while(onHand.includes(c));
-		dCards.push(c);
-		onHand.push(c);
-		sumup();
-	}
-	rule(true);
-	display();
-}
-
-function display()
-{
-	var D = document.getElementById("dealer");
-	for(i = 0; i < dCards.length; ++i)
-	{
-		var ca = document.createElement("img");
-		ca.src = "static/png/"+dCards[i];
-		ca.height = "170";
-		ca.width = "80";
-		D.appendChild(ca);
-	}
-
-	var P = document.getElementById("player");
-	for(i = 0; i < pCards.length; ++i)
-	{
-		var cart = document.createElement("img");
-		cart.src = "static/png/"+pCards[i];
-		cart.height = "170";
-		cart.width = "80";
-		P.appendChild(cart);
-	}
-
-	if(state!="")
-	{
-		document.getElementById("stat").innerHTML = state;
-	}
-	
-}
-
-
-function deal(b)
-{
-	if(b > 0){
-		bet = b;
-	}
-	for(i = 0 ; i < 2; ++i)
-	{
-		do
-		{
-			var c = CARDS[getcard(0,CARDS.length)]+"_of_"+TYPES[getcard(0,4)];
-		}while(onHand.includes(c));
-		pCards.push(c);
-		onHand.push(c);
-	}
-
-	for(i = 0 ; i < 2; ++i)
-	{
-		do
-		{
-			var c = CARDS[getcard(0,CARDS.length)]+"_of_"+TYPES[getcard(0,4)];
-		}while(onHand.includes(c));
-		dCards.push(c);
-		onHand.push(c);
-	}
-
-	sumup();
-
-}
-
-function getcard(min, max) {
-    return Math.floor(Math.random() * (max - min) ) + min;
-}
-	</script>
+	<script src="view/template/jack.js"></script>
 </head>
-<body>
-
+<body onload="game('end')">
+	<center>
+	<table>
+		<td width="100">
+			<button id="500" onclick="betmore(500)"><img width="50" height="50" src="{{ chip }}500.png"></button>
+		
+		<br/>
+		
+			<button id="100" onclick="betmore(100)"><img width="50" height="50" src="{{ chip }}100.png"></button>
+		<br />		
+			<button id="50" onclick="betmore(50)"><img width="50" height="50" src="{{ chip }}50.png"></button>
+		<br/>
+			<button id="10" onclick="betmore(10)"><img width="50" height="50" src="{{ chip }}10.png"></button>
+		<br />
+			<button id="5" onclick="betmore(5)"><img width="50" height="50" src="{{ chip }}5.png"></button>
+		<br />
+			<button id="1" onclick="betmore(1)"><img  width="50" height="50" src="{{ chip }}1.png"></button>
+		</td>
+		<td width="50"></td>
+<td style="align-content: center;">
+	<center>
 	<div name="dealer" id="dealer"></div>
 	<br/>
+	<p id="dhand"></p>
 	<p id="stat">(-_-)</p>
-	<button onclick="deal(20)">deal</button><button onclick="hit()">Hit</button><button onclick="stand()">Stand</button>
+	<p id="phand"></p>
+	<br />
+	<button id="de" onclick="deal()">deal</button><button id="hi" onclick="hit()">Hit</button><button id="st" onclick="stand()">Stand</button>
 	<br/>
 	<div name="player" id="player"></div>
+</center>
+</td>
+<td>
+	<p>Your Fund:</p>
+	<p id="fund">?</p>
+	<br/>
+	<p>Your Bet:</p>
+	<p id="bet">0</p>
+	<br/>
 
+
+</td>
+</table>
+</center>
 </body>
 </html>

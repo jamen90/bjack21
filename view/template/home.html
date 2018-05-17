@@ -1,16 +1,13 @@
 {% extends "layout.html" %}
 
 {% block body %}
-<br />
-<br />
 <center>
 <table>
-	<td><h2>Hey {{ uname }}</h2></td><td><h2><a href="index.php">[Home]</a></h2></td><td><h2><a href="index.php?action=logout">[Logout]</a></h2></td><td><h2><a href="view/b21.php">[Deal]</a></h2></td><td><h2><a href="index.php?action=score">[Scores]</a></h2></td>
+	<td><h2><a href="index.php?action=logout">[Logout]</a></h2></td><td><td><h2>---Hi {{ uname }}---</h2></td><td><h2><a href="index.php">[Deal]</a></h2></td><td><h2><a href="index.php?action=score">[Scores]</a></h2></td>
 </table>
 </center>
 <br />
-<br />
-<br />
+<iframe width="1200" height="570" srcdoc="{{ game }}" ></iframe>
 {{ header }}
 
 {% endblock %}
