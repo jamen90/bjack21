@@ -1,0 +1,15 @@
+<center>
+<table border="1" width="800">
+	<tr align="center"><td align="center"><p>Username</p></td><td align="center"><p>Fund</p></td><td align="center"><p>Win</p></td><td align="center"><p>Rounds</p></td></tr>
+	{% for d in table %}
+		{% for row in d %}
+		<tr align="center">
+			{% for column in row %}
+				<td align="center">{% if column==u %}<p style="color: red;">{% else %}<p>{% endif %}{{ column }}</p></td>
+			{% endfor %}
+		</tr>
+		{% endfor %}
+
+	{% endfor %}
+</table>
+</center>
